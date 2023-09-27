@@ -2,8 +2,8 @@
     "version": 2,
     "routes": [
       {
-        "src": "/",
-        "dest": "index.js" 
+        "src": "/api/books",
+        "dest": "backend/index.js" 
       },
       {
         "src": "/api/books", "methods": ["GET"],"dest": "./api/books.js"},
@@ -18,7 +18,7 @@
           "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       },
       "src": "/.*",
-      "dest": "index.js"
+      "dest": "backend/index.js"
     }
   ]
   }
