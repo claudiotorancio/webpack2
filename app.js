@@ -1,3 +1,4 @@
+
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
     
@@ -8,12 +9,12 @@ const morgan = require('morgan')
 const multer = require('multer')
 const path = require('path')
 const cors = require('cors');
-const { Console } = require('console');
+
 
 //initializacion
 const app = express()
 
-require('./database.js')
+require('./backend/database.js')
 
 //Settings
 app.set('port', process.env.PORT || 3000);
@@ -36,17 +37,11 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use('/api/books', require('./routes/books.js'))
+app.use('/api/books', require('./backend/routes/books.js'))
 
 
  
 //Static files
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'backend', 'public')))
 
-
-//Server Starter
-app.listen(app.get('port'),()=> {
-    console.log('Server start', app.get('port'));
-    })
-
-   
+module.exports = app;

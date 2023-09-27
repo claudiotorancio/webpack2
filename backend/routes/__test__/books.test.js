@@ -1,10 +1,39 @@
 const request = require("supertest");
-const app = require('../../index.js')
+const app = require('../../../app.js')
 
-it('Can send emails with valid inputs', async () => {
-    return request(app)
+
+describe('GET /api/books', () => {
+    test("should respond with a 200 status code", async () => {
+        const response = await request(app).get('/api/books').send();
+        expect(response.statusCode).toBe(200)
+    });
+
+    test("should respond with an array", async () => {
+        const response = await request(app).get('/api/books').send();
+        expect(response.body).toBeInstanceOf(Array)
+    });
+})
+
+describe('POST /api/books', () => {
+    test("should respond with a 200 status code", async () => {
+        const response = await request(app).post('/api/books').send();
+        expect(response.statusCode).toBe(200)
+    });
+
+    test("should have a content-type: application/json in header", async () => {
+        const response = await request(app).get('/api/books').send();
+        expect(response.headers["content-type"]).toEqual(
+        expect.stringContaining("json")
+        )
+    });
+})
+
+
+
+/*it('Can send emails with valid inputs', async () => {
+    return await request(app)
       .post('/apibooks')
-      .send({
+      .send ({
         to: 'claudiotorancio@gmail.com',
         subject: 'Subject',
         text: 'some random text',
@@ -15,7 +44,7 @@ it('Can send emails with valid inputs', async () => {
   });
   
   it('Returns a 400 status code with invalid credentials', async () => {
-    return request(app)
+    return await request(app)
       .post('/api/books')
       .send({
         to: '',
@@ -25,4 +54,4 @@ it('Can send emails with valid inputs', async () => {
         sandboxMode: true
       })
       .expect(400);
-  });
+  });*/

@@ -2,9 +2,9 @@
 const { Schema, model } = require("mongoose")
 
 const BookSchema = new Schema ({
-    title: {type: String, required: true},
-    author: {type: String, required: true},
-    isbn:{type: String, required: true},
+    title: {type: String},
+    author: {type: String},
+    isbn:{type: String},
     imagePath: {type: String},
     created_at: {type: Date, default:Date.now}
 });

@@ -11,6 +11,12 @@
     "build": "cross-env NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "engines": {
+    "node": ">=16.17.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
