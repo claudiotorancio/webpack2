@@ -3,7 +3,7 @@
 
 class BookService {
     constructor() {
-        this.URI = 'https://webpack2-two.vercel.app/api/books'
+        this.URI = '/api/books'
     }
 
     async getBooks() {
