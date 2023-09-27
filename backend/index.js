@@ -1,13 +1,14 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
+    
 }
-
 
 const express = require('express')
 const morgan = require('morgan')
 const multer = require('multer')
 const path = require('path')
-const cors = require('cors')
+const cors = require('cors');
+const { Console } = require('console');
 
 //initializacion
 const app = express()
@@ -47,3 +48,5 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.listen(app.get('port'),()=> {
     console.log('Server start', app.get('port'));
     })
+
+   
