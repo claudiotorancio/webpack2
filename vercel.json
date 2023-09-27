@@ -3,14 +3,8 @@
     "routes": [
       {
         "src": "/api/books",
-        "dest": "/api/books.js" 
+        "dest": "backend/routes/books.js" 
       },
-      {
-        "src": "/api/books", "methods": ["GET"],"dest": "./api/books.js"},
-        {
-          "src": "/api/books", "methods": ["POST"],"dest": "./api/books.js"},
-          {
-            "src": "/api/books", "methods": ["DELETE"],"dest": "./api/books.js"},
       {
       "headers": {
           "Access-Control-Allow-Origin": "*",
