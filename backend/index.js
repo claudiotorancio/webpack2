@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 app.use(morgan('dev'));
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, './backend/public/uploads'),
+    destination: path.join(__dirname, 'public/uploads'),
     filename(req, file, cb) {
         cb(null, new Date().getTime() + path.extname(file.originalname));
     }
@@ -40,7 +40,7 @@ app.use('/api/books', require('./routes/books.js'))
 
  
 //Static files
-app.use(express.static(path.join(__dirname, 'backend', 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 //Server Starter
