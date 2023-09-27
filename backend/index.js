@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(cors())
 
 
-app.use('/api/books', require('../api/books.js'))
+app.get('/api/books', require('../api/books.js'))
 
 
  
