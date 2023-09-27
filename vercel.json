@@ -3,7 +3,7 @@
     "routes": [
       {
         "src": "/api/books",
-        "dest": "/backend/books.js" 
+        "dest": "/api/books.js" 
       },
       {
         "src": "/api/books", "methods": ["GET"],"dest": "./api/books.js"},
