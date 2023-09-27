@@ -15,7 +15,7 @@ const app = express()
 require('./database.js')
 
 //Settings
-const PORT = process.env.PORT || 3000;
+app.set('port', process.env.PORT || 3000);
 
 //Middlewares
 app.use(morgan('dev'));
@@ -44,7 +44,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 //Server Starter
-app.listen(PORT, () => {
-    console.log(`escuchando en el puerto: ${PORT}`)
-
-})
+app.listen(app.get('port'),()=> {
+    console.log('Server start', app.get('port'));
+    })
