@@ -3,13 +3,13 @@
 const { Router } = require('express')
 const router = Router();
 
-const { renderBooks, createBooks, deleteBooks } = require('./controllers.js')
+const { renderAtBooks, createBooks, deleteBooks } = require('./controllers.js')
 
-router.get('/api/books', renderBooks);
+router.get('/', renderAtBooks);
 
-router.post('/api/books', createBooks);
+router.post('/', createBooks);
 
-router.delete('/api/books/:id', deleteBooks);
+router.delete('/:id', deleteBooks);
 
 
 module.exports = router;

@@ -3,7 +3,7 @@ const path = require('path')
 
 const Book = require('../backend/models/Book.js')
 
-const renderBooks = async (req, res) => {
+const renderAtBooks = async (req, res) => {
     const books = await Book.find()
     res.json(books)
 }
@@ -27,7 +27,7 @@ const deleteBooks = async (req, res) => {
 }
 
 module.exports = {
-    renderBooks,
+    renderAtBooks,
     createBooks,
-    deleteBooks,
+    deleteBooks
 }
