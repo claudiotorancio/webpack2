@@ -3,6 +3,8 @@ const app = require('../../../app.js')
 
 
 describe('GET /api/books', () => {
+  
+    
     test("should respond with a 200 status code", async () => {
         const response = await request(app).get('/api/books').send();
         expect(response.statusCode).toBe(200)
@@ -14,17 +16,32 @@ describe('GET /api/books', () => {
     });
 })
 
+const newTask = {
+    title: "nada",
+    author:"nada",
+    sandboxMode: true
+}
+
 describe('POST /api/books', () => {
     test("should respond with a 200 status code", async () => {
-        const response = await request(app).post('/api/books').send();
+        const response = await request(app).post('/api/books').send(newTask);
         expect(response.statusCode).toBe(200)
     });
 
     test("should have a content-type: application/json in header", async () => {
-        const response = await request(app).get('/api/books').send();
+        const response = await request(app).post('/api/books').send(newTask);
         expect(response.headers["content-type"]).toEqual(
         expect.stringContaining("json")
         )
+    });
+
+    
+
+    test("should respod whith an task ID", async () => {
+      
+        const response = await request(app).post('/api/books').send(newTask);
+        expect(response.body).toBeDefined();
+        
     });
 })
 
