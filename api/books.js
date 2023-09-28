@@ -13,12 +13,16 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/api/books', async (req, res) => {
-    const{title, author, isbn } = req.body;
-    const imagePath = '/uploads/' + req.file
-    const newBook = new Book ({title, author, isbn, imagePath});
-    await newBook.save();
-
-    res.json({message:'Book saved'})
+    try{
+        const{title, author, isbn } = req.body;
+        const imagePath = '/uploads/' + req.file
+        const newBook = new Book ({title, author, isbn, imagePath});
+        await newBook.save();
+        res.json({message:'Book saved'})
+    } catch(error) {
+        console.log(error)
+    }
+  
 });
 
 router.delete('/:id', async (req, res) => {
