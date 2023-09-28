@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     res.json(books)
 });
 
-router.post('/', async (req, res) => {
+router.post('/api/books', async (req, res) => {
     const{title, author, isbn } = req.body;
     const imagePath = '/uploads/' + req.file
     const newBook = new Book ({title, author, isbn, imagePath});
