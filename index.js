@@ -1,10 +1,12 @@
 
-const app = require('./app.js')
 
+const app = require('./app.js')
+require('./backend/database.js')
+const {PORT} = require('./config.js')
 
 //Server Starter
-app.listen(app.get('port'),()=> {
-    console.log('Server start', app.get('port'));
-    })
+app.listen(PORT);
+    console.log('Server start',PORT);
+   
 
   

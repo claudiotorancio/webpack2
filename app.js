@@ -1,8 +1,5 @@
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-    
-}
+
 
 const express = require('express')
 const morgan = require('morgan')
@@ -14,10 +11,10 @@ const cors = require('cors');
 //initializacion
 const app = express()
 
-require('./backend/database.js')
+
 
 //Settings
-app.set('port', process.env.PORT || 3000);
+
 
 //Middlewares
 app.use(morgan('dev'));
