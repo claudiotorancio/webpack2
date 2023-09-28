@@ -39,7 +39,11 @@ app.use(cors())
 
 app.use('/api/books', require('./api/books.js'))
 
-
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  });
+  
  
 //Static files
 app.use(express.static(path.join(__dirname, 'backend', 'public')))
